@@ -1,0 +1,6 @@
+profile=gpu-hq
+hwdec=vaapi
+vo=gpu
+ytdl-format="bestvideo[ext=mp4]+bestaudio[ext=m4a]"
+cache=yes
+

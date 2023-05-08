@@ -1,0 +1,98 @@
+icons_format = "{icon}"
+
+[theme]
+theme = "dracula"
+
+#[theme.overrides]
+#idle_bg = "#123456"
+#idle_fg = "#abcdef"
+
+[icons]
+icons = "awesome5"
+#[icons.overrides]
+#bat = ["|E|", "|_|", "|=|", "|F|"]
+#bat_charging = "|^| "
+#bat = " | | "
+#bat_full = " |X| "
+#bat_charging = " |^| "
+#bat_discharging = " |v| "
+
+# [[block]]
+# block = "focused_window"
+# [block.format]
+# full = " $title "
+[[block]]
+block = "net"
+device = "^vpn?"
+format = "$icon {$ip|N/A}"
+missing_format = ""
+
+
+[[block]]
+block = "net"
+device = "^enp44s?"
+format = "$icon {$ip|N/A}"
+missing_format = ""
+
+[[block]]
+block = "net"
+device = "^wlp0s20f?"
+format = "$icon {$ip|N/A} ($ssid/$signal_strength)"
+missing_format = ""
+
+
+[[block]]
+block = "cpu"
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents/$mem_total "
+#format_alt = " $icon_swap $swap_used_percents.eng(w:2) "
+
+
+[[block]]
+block = "sound"
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+
+[[block]]
+block = "weather"
+format = " $icon $weather ($location) $temp, $wind m/s $direction "
+[block.service]
+name = "openweathermap"
+api_key = "97b1d4f1dd20f49a4fd31c992d07d0fe"
+city_id = "3468879"
+units = "metric"
+coordinates = ["-27.0981","-48.9175"]
+
+[[block]]
+block = "battery"
+format = "$icon $percentage $time"
+
+[[block]]
+block = "uptime"
+interval = 600 # update every 10 minutes
+
+[[block]]
+block = "pacman"
+interval = 600
+format = " $icon $pacman updates available "
+format_singular = " $icon $pacman update available "
+format_up_to_date = " $icon atualizado "
+critical_updates_regex = "(linux|linux-lts|linux-zen)"
+
+[[block]]
+block = "time"
+interval = 5
+format = " $icon $timestamp.datetime(f:'%a - %d/%m - %R') "
+
+# [[block.click]]
+# # pop-up a menu showing the available updates. Replace wofi with your favourite menu command.
+# button = "left"
+# cmd = "fakeroot pacman -Qu --dbpath /tmp/checkup-db-i3statusrs/ | rofi --show dmenu"
+# [[block.click]]
+# # Updates the block on right click
+# button = "right"
+# update = true

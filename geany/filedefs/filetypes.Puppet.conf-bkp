@@ -1,0 +1,17 @@
+[styling=Perl]
+ 
+[keywords]
+# https://docs.puppetlabs.com/puppet/latest/reference/lang_reserved.html
+primary=and case class default define else elsif false if in import inherits node or true undef unless
+ 
+[lexer_properties=Perl]
+ 
+[settings=Perl]
+lexer_filetype=Perl
+ 
+extension=pp
+ 
+[indentation]
+#width=4
+# 0 is spaces, 1 is tabs, 2 is tab & spaces
+#type=1
